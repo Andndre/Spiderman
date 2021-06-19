@@ -1,0 +1,8 @@
+main: me.Andre.Spiderman.Main
+name: Spiderman
+version: 1.0.0
+api-version: 1.15
+
+commands:
+  enableSpiderman:
+  disableSpiderman:

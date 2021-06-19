@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Spiderman:jar">
+    <output-path>$PROJECT_DIR$/../../../Server 1.15.2/plugins</output-path>
+    <root id="archive" name="Spiderman.jar">
+      <element id="module-output" name="Spiderman" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../MyAPI.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
