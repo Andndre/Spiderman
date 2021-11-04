@@ -1,6 +1,5 @@
 package me.Andre.Spiderman;
 
-import me.Andre.API.HashMapHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -19,14 +18,14 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.util.Vector;
 
+import me.andre.mcplugz.HashmapHelper;
+
 import java.util.HashMap;
 import java.util.Map;
 
 
-@SuppressWarnings("unused")
 public class Main extends JavaPlugin implements Listener {
 
-    public HashMapHelper hmh = new HashMapHelper();
     public Map<String, Integer> tasks;
     public boolean enable;
     BukkitScheduler scheduler;
@@ -60,8 +59,8 @@ public class Main extends JavaPlugin implements Listener {
     @EventHandler
     public void playerInteract(PlayerInteractEvent event){
         if(!enable) return;
-
-        hmh.registerIfNotIncluded(tasks, event.getPlayer().getUniqueId().toString(), 0);
+        
+        HashmapHelper.putIfAbsent(tasks, event.getPlayer().getUniqueId().toString(), 0);
         if(event.getAction().equals(Action.LEFT_CLICK_AIR)){
             event.setCancelled(false);
             if(tasks.get(event.getPlayer().getUniqueId().toString()) == 0){
@@ -75,7 +74,6 @@ public class Main extends JavaPlugin implements Listener {
                         return;
                     }
                 }
-
 
                 if(!tb.getType().equals(Material.AIR)){
                     Vector v = pLoc.getDirection();
